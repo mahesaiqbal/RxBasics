@@ -15,6 +15,10 @@ import kotlinx.android.synthetic.main.layout_single_joke.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val EMPTY_STRING = ""
+    }
+
     private val viewModel by lazy {
         viewModel { MainViewModel() }
     }
@@ -52,8 +56,6 @@ class MainActivity : AppCompatActivity() {
             tv_single_joke.text = it ?: EMPTY_STRING
         })
 
-
-
         /** OBSERVABLE EXAMPLE **/
         viewModel.jokesLoadingStatus.observe(this, Observer {
             when (it) {
@@ -72,8 +74,6 @@ class MainActivity : AppCompatActivity() {
             tv_jokes.text = it?.toJokeString() ?: EMPTY_STRING
         })
 
-
-
         /** COMPLETABLE EXAMPLE **/
         viewModel.installLoadingStatus.observe(this, Observer {
             when (it) {
@@ -89,14 +89,12 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.installation.observe(this, Observer {
-            when(it) {
+            when (it) {
                 SUCCESS -> toast("Fake installation succeed")
                 ERROR -> toast("Fake installation failed! Hum ... let me guess this never happen")
             }
         })
     }
 
-    companion object {
-        private const val EMPTY_STRING = ""
-    }
+
 }
