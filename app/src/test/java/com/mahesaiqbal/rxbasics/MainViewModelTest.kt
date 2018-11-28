@@ -50,7 +50,6 @@ class MainViewModelTest {
         val installationLoadingStatus = classUnderTest.installLoadingStatus.testObserver()
 
         classUnderTest.onFakeInstall()
-        //Note that this tests the real call to onFakeInstall(). It will take 3 seconds. It's possible to play with time in RX unit testing. See a next article maybe :P
 
         Truth.assert_()
             .that(installationStatus.observedValues.first())

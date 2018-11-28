@@ -1,8 +1,8 @@
 package com.mahesaiqbal.rxbasics
 
 import org.junit.Test
-
 import org.junit.Assert.*
+import org.mockito.Mockito.mock
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +12,16 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        assertEquals(5, 2 + 3)
+    }
+
+    @Test
+    fun unitTestingTrue() {
+        assertTrue(true)
+    }
+
+    @Test
+    fun unitTestingFalse() {
+        assertFalse(false)
     }
 }
